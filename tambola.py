@@ -22,7 +22,7 @@ class Ticket:
         ticket = {}
         while j <= max_num:
             rand_num = random.randrange(1,91)
-            if ticket.has_key(rand_num):
+            if rand_num in ticket:
                 continue
             else:
                 if rand_num < 10 and self.range[0] < 3:
@@ -63,14 +63,14 @@ class Ticket:
                     j = j + 1
                 else:
                     continue
-        ticket_page[str(count)]=ticket.keys()
+        ticket_page[str(count)]=list(ticket.keys())
         return ticket_page
     
     def get_tickets(self):
         total = 0
         while (total < self.total_tickets):
             numbers = self.generate()
-            for keys,value in numbers.iteritems():
+            for keys,value in numbers.items():
                 row1 = [" "," "," "," "," "," "," "," "," "]
                 row2 = [" "," "," "," "," "," "," "," "," "]    
                 row3 = [" "," "," "," "," "," "," "," "," "]
@@ -81,91 +81,92 @@ class Ticket:
                 count3 = 0
                 for i in range(len(value)):
                     rem = int(value[i]/10)
+                    str_val = str(list(value)[i])
                     if rem == 0:
                         if data[j][0] == " " and count1 < 9:
-                            data[j][0] = str(value[i])
+                            data[j][0] = str_val
                             count1 = count1 + 1
                         elif data[j+1][0] == " " and count2 < 9:
-                            data[j+1][0] = str(value[i])
+                            data[j+1][0] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][0] = str(value[i])
+                            data[j+2][0] = str_val
                     elif rem == 1:
                         if data[j][1] == " " and count1 < 9:
-                            data[j][1] = str(value[i])
+                            data[j][1] = str_val
                             count1 = count1 + 1
                         elif data[j+1][1] == " " and count2 < 9:
-                            data[j+1][1] = str(value[i])
+                            data[j+1][1] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][1] = str(value[i])
+                            data[j+2][1] = str_val
                     elif rem == 2:
                         if data[j][2] == " " and count1 < 9:
-                            data[j][2] = str(value[i])
+                            data[j][2] = str_val
                             count1 = count1 + 1
                         elif data[j+1][2] == " " and count2 < 9:
-                            data[j+1][2] = str(value[i])
+                            data[j+1][2] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][2] = str(value[i])
+                            data[j+2][2] = str_val
                     elif rem == 3:
                         if data[j][3] == " " and count1 < 9:
-                            data[j][3] = str(value[i])
+                            data[j][3] = str_val
                             count1 = count1 + 1
                         elif data[j+1][3] == " " and count2 < 9:
-                            data[j+1][3] = str(value[i])
+                            data[j+1][3] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][3] = str(value[i])
+                            data[j+2][3] = str_val
                     elif rem == 4:
                         if data[j][4] == " " and count1 < 9:
-                            data[j][4] = str(value[i])
+                            data[j][4] = str_val
                             count1 = count1 + 1
                         elif data[j+1][4] == " " and count2 < 9:
-                            data[j+1][4] = str(value[i])
+                            data[j+1][4] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][4] = str(value[i])
+                            data[j+2][4] = str_val
                     elif rem == 5:
                         if data[j][5] == " " and count1 < 9:
-                            data[j][5] = str(value[i])
+                            data[j][5] = str_val
                             count1 = count1 + 1
                         elif data[j+1][5] == " " and count2 < 9:
-                            data[j+1][5] = str(value[i])
+                            data[j+1][5] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][5] = str(value[i])
+                            data[j+2][5] = str_val
                     elif rem == 6:
                         if data[j][6] == " " and count1 < 9:
-                            data[j][6] = str(value[i])
+                            data[j][6] = str_val
                             count1 = count1 + 1
                         elif data[j+1][6] == " " and count2 < 9:
-                            data[j+1][6] = str(value[i])
+                            data[j+1][6] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][6] = str(value[i]) 
+                            data[j+2][6] = str_val 
                     elif rem == 7:
                         if data[j][7] == " " and count1 < 9:
-                            data[j][7] = str(value[i])
+                            data[j][7] = str_val
                             count1 = count1 + 1
                         elif data[j+1][7] == " " and count2 <9:
-                            data[j+1][7] = str(value[i])
+                            data[j+1][7] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][7] = str(value[i])           
+                            data[j+2][7] = str_val           
                     elif rem == 8 or rem == 9:
                         if data[j][8] == " " and count1 < 9:
-                            data[j][8] = str(value[i])
+                            data[j][8] = str_val
                             count1 = count1 + 1
                         elif data[j+1][8] == " " and count2 < 9:
-                            data[j+1][8] = str(value[i])
+                            data[j+1][8] = str_val
                             count2 = count2 + 1
                         else:
-                            data[j+2][8] = str(value[i])        
+                            data[j+2][8] = str_val        
                     else:
-                        print "Hi"    
+                        print("Hi")    
                      
-                print "\n"
+                print("\n")
             count = 1
             row1_elim = [0,0,0,0,0,0,0,0,0]
             while count <= 4:
@@ -239,18 +240,18 @@ class Table:
             data = sorted(self.data, key=self.sort_key)
         else:
             data = self.data
-        data = [map(str, row) for row in data]
+        data = [list(map(str, row)) for row in data]
         nr_cols = max(len(row) for row in data)
 
         col_widths = [0 for j in range(nr_cols)]
         for row in data:
-            col_widths = map(max, zip(map(len, row), col_widths))
+            col_widths = list(map(max, list(zip(list(map(len, row)), col_widths))))
         if self.col_max_widths:
             for j, col_max_width in enumerate(self.col_max_widths):
                 if col_max_width is not None:
                     col_widths[j] = min(col_widths[j], col_max_width)
         if self.headers:
-            col_widths = map(max, zip(map(len, self.headers), col_widths))
+            col_widths = list(map(max, list(zip(list(map(len, self.headers)), col_widths))))
 
         if not self.align:
             aligns = 'l' * nr_cols
@@ -259,7 +260,7 @@ class Table:
         
         def row_repr(row):
             row_parts = []
-            for j, item, width, align in zip(range(nr_cols), row, col_widths, aligns):
+            for j, item, width, align in zip(list(range(nr_cols)), row, col_widths, aligns):
                 content = item[:width]
                 padding_length = width - len(content)
                 if align.lower().startswith('l'):
@@ -303,18 +304,15 @@ def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:],"h",["help", "generate="])
         if len(sys.argv) == 1:
-            usage()
             sys.exit()
-    except getopt.GetoptError, error:
-        print str(error)
-        usage()
+    except getopt.GetoptError as error:
+        print(str(error))
         sys.exit(2)
 
     for o, a in opts:
         if o == "--generate":
             Ticket(int(a)).get_tickets()
         elif o in ("-h", "--help"):
-            usage()
             sys.exit()
         else:
             pass
